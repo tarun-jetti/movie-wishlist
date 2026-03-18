@@ -1,0 +1,8 @@
+{
+  "baseURL": {
+    "value": "http://localhost:5001",
+    "type": "string",
+    "id": "bbd7ca34-ebb7-450f-afa5-f35d38aee6d6",
+    "isSecret": false
+  }
+}
