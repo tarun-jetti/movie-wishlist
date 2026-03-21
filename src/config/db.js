@@ -1,20 +1,27 @@
-import { PrismaClient } from "@prisma/client/extension";
+// Import the main client, not the extension stub
+import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient({
-    log :
-        process.env.NODE_ENV === 'devlopment' ? ['quary','error','warn'] : ['error'],
+    log:
+        // Fixed typo: 'devlopment' -> 'development'
+        // Fixed typo: 'quary' -> 'query'
+        process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
 });
 
-const connectDb = async ()=>{
-    try{
+const connectDb = async () => {
+    try {
         await prisma.$connect();
-        console.log("database connected");
+        console.log("Database connected successfully");
     }
-    catch(error){
-        console.log('database not connected : ' + error);
+    catch (error) {
+        console.log('Database connection failed: ' + error);
         process.exit(1);
     }
-} 
-const disconnectDb = async () =>{
-    await prisma.$discinnect();
 }
-export {prisma,connectDb,disconnectDb};
+
+const disconnectDb = async () => {
+    // Fixed typo: '$discinnect' -> '$disconnect'
+    await prisma.$disconnect(); 
+}
+
+export { prisma, connectDb, disconnectDb };

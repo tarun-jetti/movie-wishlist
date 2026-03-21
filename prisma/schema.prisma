@@ -5,11 +5,14 @@
 
 generator client {
   provider = "prisma-client-js"
+  engineType    = "library"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      =env("DATABASE_URL")
+  url      = env("DATABASE_URL")
+
 }
 
 model User {
