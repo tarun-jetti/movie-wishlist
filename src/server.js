@@ -8,7 +8,9 @@ connectDb();
 
 
 const app =express();
+
 app.use('/movies',movieRoutes);
+
 app.use('/auth',authRoutes);
 const PORT = 5001;
 app.listen(PORT,()=>{
