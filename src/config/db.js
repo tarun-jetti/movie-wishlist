@@ -11,6 +11,7 @@ const prisma = new PrismaClient({
 const connectDb = async () => {
     try {
         await prisma.$connect();
+
         console.log("Database connected successfully");
     }
     catch (error) {
